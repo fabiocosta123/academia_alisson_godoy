@@ -1,28 +1,32 @@
+function limparErros(campos) {
+    campos.forEach(campo => {
+        const input = document.getElementById(campo);
+        const erro = document.getElementById(`erro${campo.charAt(0).toUpperCase() + campo.slice(1)}`);
+
+        if (input) input.classList.remove('is-invalid');
+        if (erro) erro.innerText = '';
+    });
+}
+
+function exibirErro(campo, mensagem) {
+    const input = document.getElementById(campo);
+    const erro = document.getElementById(`erro${campo.charAt(0).toUpperCase() + campo.slice(1)}`);
+
+    if (input) input.classList.add('is-invalid');
+    if (erro) erro.innerText = mensagem;
+}
+
 function limparErrosIMC() {
-    document.getElementById('pesoIMC').classList.remove('is-invalid');
-    document.getElementById('alturaIMC').classList.remove('is-invalid');
-    document.getElementById('erroPesoIMC').innerText = '';
-    document.getElementById('erroAlturaIMC').innerText = '';
+    limparErros(['pesoIMC', 'alturaIMC']);
 }
 
 function limparErrosTMB() {
-    document.getElementById('pesoTMB').classList.remove('is-invalid');
-    document.getElementById('alturaTMB').classList.remove('is-invalid');
-    document.getElementById('idadeTMB').classList.remove('is-invalid'); 
-    document.getElementById('sexoTMB').classList.remove('is-invalid');
-    document.getElementById('erroPesoTMB').innerText = '';  
-    document.getElementById('erroAlturaTMB').innerText = '';
-    document.getElementById('erroIdadeTMB').innerText = '';
-    document.getElementById('erroSexoTMB').innerText = '';
+    limparErros(['pesoTMB', 'alturaTMB', 'idadeTMB', 'sexoTMB']);
 }
 
 function limparErrosGasto() {
-    document.getElementById('tmbGasto').classList.remove('is-invalid');
-    document.getElementById('atividade').classList.remove('is-invalid');
-    document.getElementById('erroTMBGasto').innerText = '';
-    document.getElementById('erroAtividadeGasto').innerText = '';
+    limparErros(['tmbGasto', 'atividade']);
 }
-
 
 function calcularIMC() {
     limparErrosIMC();
@@ -30,8 +34,13 @@ function calcularIMC() {
     const peso = parseFloat(document.getElementById('pesoIMC').value);
     const alturaCm = parseFloat(document.getElementById('alturaIMC').value);
 
-    if (isNaN(peso) || peso <= 0 || isNaN(alturaCm) || alturaCm <= 0) {
-        alert("Preencha corretamente Peso e Altura para calcular o IMC.");
+    if (isNaN(peso) || peso <= 0) {
+        exibirErro('pesoIMC', 'Peso inválido.');
+        return;
+    }
+
+    if (isNaN(alturaCm) || alturaCm <= 0) {
+        exibirErro('alturaIMC', 'Altura inválida.');
         return;
     }
 
@@ -51,13 +60,26 @@ function calcularIMC() {
 
 function calcularTMB() {
     limparErrosTMB();
+
     const peso = parseFloat(document.getElementById('pesoTMB').value);
     const altura = parseFloat(document.getElementById('alturaTMB').value);
     const idade = parseInt(document.getElementById('idadeTMB').value);
     const sexo = document.getElementById('sexoTMB').value;
 
-    if (isNaN(peso) || peso <= 0 || isNaN(altura) || altura <= 0 || isNaN(idade) || idade <= 0) {
-        alert("Preencha corretamente Peso, Altura e Idade para calcular o TMB.");
+    if (isNaN(peso) || peso <= 0) {
+        exibirErro('pesoTMB', 'Peso inválido.');
+        return;
+    }
+    if (isNaN(altura) || altura <= 0) {
+        exibirErro('alturaTMB', 'Altura inválida.');
+        return;
+    }
+    if (isNaN(idade) || idade <= 0) {
+        exibirErro('idadeTMB', 'Idade inválida.');
+        return;
+    }
+    if (!sexo) {
+        exibirErro('sexoTMB', 'Selecione o sexo.');
         return;
     }
 
@@ -73,11 +95,17 @@ function calcularTMB() {
 
 function calcularGasto() {
     limparErrosGasto();
+
     const tmb = parseFloat(document.getElementById('tmbGasto').value);
     const fator = parseFloat(document.getElementById('atividade').value);
 
     if (isNaN(tmb) || tmb <= 0) {
-        alert("Informe corretamente a TMB para calcular o Gasto Calórico.");
+        exibirErro('tmbGasto', 'TMB inválida.');
+        return;
+    }
+
+    if (isNaN(fator) || fator <= 0) {
+        exibirErro('atividade', 'Selecione um fator de atividade.');
         return;
     }
 
