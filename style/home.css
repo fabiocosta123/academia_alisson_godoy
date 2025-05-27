@@ -53,49 +53,79 @@ header {
     width: 250px;
 }
 
-@media (max-width: 768px) {
-  .img-outside {
-    display: none; /* Esconde imagens em telas pequenas */
-  }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body, .card, .btn, .nav-link, .logo-text, .title-text, .card-title, .card-text, small {
+    font-family: 'Montserrat', sans-serif;
 }
 
-
-/* .plano-card {
-  width: 300px;
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-} */
-
 .plano-card {
-  width: 250px;
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* empurra botão para baixo */
+    height: 100%;
+    margin-top: 43px;
+    
+    background-color: #c1c1c1;
 }
 
 .plano-card .card-body {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .plano-card .btn {
-  margin-top: auto;
+    margin-top: auto; /* garante que o botão fique no rodapé */
+    width: 100%;
 }
 
-.card-text strong {
-  color: #198754; /* verde igual ao btn-success */
+.plano-card .card-text strong {
+    color: #198754; /* verde igual ao botão success */
 }
 
 .img-outside {
-  width: 150px;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+    width: 120px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
 }
+
+.img-outside.left {
+    left: -70px;
+}
+
+.img-outside.right {
+    right: -70px;
+}
+
+@media (max-width: 768px) {
+    .img-outside {
+        display: none; /* Esconde as imagens em telas pequenas */
+    }
+
+    .d-flex.flex-column.flex-md-row.gap-4 {
+        flex-direction: column !important; /* Coluna no mobile */
+    }
+
+    .plano-card {
+        width: 100%;
+    }
+}
+
+.card-title, .card-text, small {
+    text-align: center;
+}
+
+.planos header h2 {
+    font-weight: 700;
+}
+
+.planos header p {
+    font-weight: 400;
+}
+
+
+
