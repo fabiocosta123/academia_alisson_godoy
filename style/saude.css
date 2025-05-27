@@ -1,3 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body, .card, .btn, .nav-link, .logo-text, .title-text, .card-title, .card-text, small {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+  height: 50px; /* fixando altura do header */
+  overflow: hidden; /* evita que a imagem estoure */
+}
+
+.logo {
+  max-height: 60px; /* tamanho máximo para a logo */
+  width: auto;
+}
+
+.logo-text {
+  color: #fff;
+  font-size: 0.9rem; /* ajusta para não ocupar espaço demais */
+  line-height: 1.1;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.title-text{
+    margin-left: .8rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-link{
+    font-family: 'Montserrat', sans-serif;    
+    color: #fff;
+}
+
+
 body {
             background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             font-family: Arial, sans-serif;
