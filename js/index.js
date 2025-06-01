@@ -1,26 +1,17 @@
-// document.addEventListener("DOMContentLoaded", function() {
-//     var navbarToggler = document.querySelector(".navbar-toggler");
-//     var navbarCollapse = document.querySelector("#navbarNav");
-
-//     navbarToggler.addEventListener("click", function() {
-//         navbarCollapse.classList.toggle("show");
-//     });
-// });
-
-// window.onload = function() {
-//     var navbarToggler = document.querySelector(".navbar-toggler");
-//     navbarToggler.addEventListener("click", function() {
-//         var navbarCollapse = document.querySelector("#navbarNav");
-//         new bootstrap.Collapse(navbarCollapse, { toggle: true });
-//     });
-// };
-
-
 document.addEventListener("DOMContentLoaded", function () {
-    var navbarToggler = document.querySelector(".navbar-toggler");
-    var navbarCollapse = document.querySelector("#navbarNav");
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarCollapse = document.querySelector("#navbarNav");
+    const navLinks = document.querySelectorAll("#navbarNav .nav-link");
 
+    // Abrir/fechar ao clicar no hambúrguer
     navbarToggler.addEventListener("click", function () {
         navbarCollapse.classList.toggle("show");
+    });
+
+    // Fechar ao clicar em qualquer link
+    navLinks.forEach(function(link) {
+        link.addEventListener("click", function () {
+            navbarCollapse.classList.remove("show");
+        });
     });
 });

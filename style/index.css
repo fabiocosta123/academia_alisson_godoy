@@ -32,13 +32,15 @@ header {
     color: #fff;
 }
 
-/* .img-outside {
+
+
+.img-outside {
   width: 150px;
   height: auto;
   position: absolute;
   top: 40%;
   transform: translateY(-50%);
-} */
+} 
 
 .img-outside.left {
   left: 10px; /* Ajusta conforme o espaço que quer */
