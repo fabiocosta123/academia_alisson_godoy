@@ -5,7 +5,7 @@ body, .card, .btn, .nav-link, .logo-text, .title-text, .card-title, .card-text, 
 }
 
 header {
-  height: 50px; /* fixando altura do header */
+  height: 60px; /* fixando altura do header */
   overflow: hidden; /* evita que a imagem estoure */
 }
 

@@ -1,14 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("HTML carregado e JavaScript pronto!");
+
     const navbarToggler = document.querySelector(".navbar-toggler");
     const navbarCollapse = document.querySelector("#navbarNav");
 
+    // Verifica se os elementos foram encontrados corretamente
+    if (!navbarToggler || !navbarCollapse) {
+        console.error("Erro: Elementos da navbar não encontrados!");
+        return;
+    }
+
+    // Aplica o comportamento correto do Bootstrap
     navbarToggler.addEventListener("click", function () {
-        new bootstrap.Collapse(navbarCollapse, {
-            toggle: true
+        navbarCollapse.classList.toggle("show");
+        navbarToggler.setAttribute("aria-expanded", navbarCollapse.classList.contains("show"));
+    });
+
+    // Fecha o menu ao clicar em qualquer link (evita que permaneça aberto no mobile)
+    document.querySelectorAll("#navbarNav .nav-link").forEach(link => {
+        link.addEventListener("click", function () {
+            navbarCollapse.classList.remove("show");
+            navbarToggler.setAttribute("aria-expanded", "false");
         });
     });
 });
-
 
 
 
