@@ -129,12 +129,12 @@ body, .card, .btn, .nav-link, .logo-text, .title-text, .card-title, .card-text, 
 .planos header p {
     font-weight: 400;
 }
-
+/* 
 @media (max-width: 768px) {
     .navbar-collapse {
-        display: block !important;
+        display: none !important;
     }
-}
+} */
 
 
 
