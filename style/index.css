@@ -98,10 +98,12 @@ body, .card, .btn, .nav-link, .logo-text, .title-text, .card-title, .card-text, 
 
 .img-outside.left {
     left: -70px;
+    height: auto;
 }
 
 .img-outside.right {
     right: -70px;
+    height: auto;
 }
 
 .sobre-academia h2 {

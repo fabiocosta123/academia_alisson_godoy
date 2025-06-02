@@ -42,7 +42,7 @@
                         </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://wa.me/+5513996272630" target="_blank">
+                            <a class="nav-link" href="https://wa.me/+5513998041437" target="_blank">
                                 <i class="bi bi-whatsapp" style="color: #25D366;"></i>
                             </a>
                         </li>
@@ -71,6 +71,9 @@
             </div>
             <button class="btn btn-primary w-100" onclick="calcularIMC()">
                 <i class="fas fa-calculator"></i> Calcular IMC
+            </button>
+             <button class="btn btn-danger w-100 text-white" data-bs-toggle="modal" data-bs-target="#matriculaModal">
+                Matricule-se
             </button>
             <p class="result text-center text-primary" id="resultadoIMC"></p>
         </div>
@@ -102,6 +105,9 @@
             <button class="btn btn-success w-100" onclick="calcularTMB()">
                 <i class="fas fa-calculator"></i> Calcular TMB
             </button>
+             <button class="btn btn-danger w-100 text-white" data-bs-toggle="modal" data-bs-target="#matriculaModal">
+                Matricule-se
+            </button>
             <p class="result text-center text-success" id="resultadoTMB"></p>
         </div>
     </div>
@@ -127,10 +133,44 @@
             <button class="btn btn-info w-100 text-white" onclick="calcularGasto()">
                 <i class="fas fa-calculator"></i> Calcular Gasto Total
             </button>
+            <button class="btn btn-danger w-100 text-white" data-bs-toggle="modal" data-bs-target="#matriculaModal">
+                Matricule-se
+            </button>
             <p class="result text-center text-info" id="resultadoGasto"></p>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="matriculaModal" tabindex="-1" aria-labelledby="matriculaModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content shadow-lg border border-primary">
+      <div class="modal-header">
+        <h5 class="modal-title" id="matriculaModalLabel">Matricule-se</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+      <form id="matriculaForm" action="https://formspree.io/f/xjkrvyja" method="POST">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nome" name="nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" name="_replyto" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" placeholder="Telefone" id="telefone" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 <footer class="text-center py-4 bg-light">
     <p>&copy; 2025 Academia. Todos os direitos reservados.</p>
