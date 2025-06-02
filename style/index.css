@@ -104,6 +104,21 @@ body, .card, .btn, .nav-link, .logo-text, .title-text, .card-title, .card-text, 
     right: -70px;
 }
 
+.sobre-academia h2 {
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.sobre-academia ul {
+  padding-left: 1.2rem;
+}
+
+.sobre-academia ul li {
+  margin-bottom: 0.5rem;
+}
+
+
 @media (max-width: 768px) {
     .img-outside {
         display: none; /* Esconde as imagens em telas pequenas */
